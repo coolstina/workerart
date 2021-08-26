@@ -41,6 +41,16 @@ type WorkerPool struct {
 	errors chan error
 }
 
+// AddJobs Add the jobs to worker pool.
+func (pool *WorkerPool) AddJobs(jobs ...interface{}) {
+	pool.jobs.AddJob(jobs...)
+}
+
+// AddJobs Add the jobs to worker pool.
+func (pool *WorkerPool) CloseJob() {
+	pool.jobs.Close()
+}
+
 // WorkersProcessing Workers processing the task work.
 func (pool *WorkerPool) WorkersProcessing() {
 
@@ -68,6 +78,7 @@ func (pool *WorkerPool) Results() <-chan interface{} {
 func (pool *WorkerPool) Done() {
 	pool.done <- struct{}{}
 }
+
 
 // Finished Whether the worker pool has completed all work.
 func (pool *WorkerPool) Finished() <-chan struct{} {
