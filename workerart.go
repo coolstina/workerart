@@ -15,6 +15,7 @@
 package workerart
 
 import (
+	"fmt"
 	"sync"
 )
 
@@ -39,6 +40,16 @@ type WorkerPool struct {
 	done chan struct{}
 
 	errors chan error
+}
+
+// AddJobs Add the jobs to worker pool.
+func (pool *WorkerPool) AddJobs(jobs ...interface{}) {
+	pool.jobs.AddJob(jobs...)
+}
+
+// AddJobs Add the jobs to worker pool.
+func (pool *WorkerPool) CloseJob() {
+	pool.jobs.Close()
 }
 
 // WorkersProcessing Workers processing the task work.
@@ -95,6 +106,8 @@ func NewWorkerPool(ops ...Option) *WorkerPool {
 	for _, o := range ops {
 		o.apply(pool)
 	}
+
+	fmt.Printf("pool: %+v\n", pool)
 
 	return pool
 }
