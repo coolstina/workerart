@@ -39,8 +39,6 @@ func (suite *WorkerPoolSuite) Test_NewWorkerPool() {
 		pool.jobs.Close()
 	}()
 
-	fmt.Printf("%+v\n", pool)
-
 	// Gets all job.
 	go func() {
 		ts := 0

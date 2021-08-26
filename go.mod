@@ -1,4 +1,4 @@
-module github.com/fireoxcms/art
+module github.com/fishfinal/workerart
 
 go 1.16
 
