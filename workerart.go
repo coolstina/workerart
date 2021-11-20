@@ -79,7 +79,6 @@ func (pool *WorkerPool) Done() {
 	pool.done <- struct{}{}
 }
 
-
 // Finished Whether the worker pool has completed all work.
 func (pool *WorkerPool) Finished() <-chan struct{} {
 	return pool.done
