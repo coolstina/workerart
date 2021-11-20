@@ -48,7 +48,7 @@ func (suite *WorkerPoolSuite) Test_NewWorkerPool() {
 	go func() {
 		no := 100
 		for i := 0; i < no; i++ {
-			pool.jobs.AddJob(rand.Intn(no))
+			pool.AddJobs(rand.Intn(no))
 		}
 		pool.jobs.Close()
 	}()
