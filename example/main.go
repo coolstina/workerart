@@ -5,7 +5,7 @@ import (
 	"math/rand"
 	"time"
 
-	"github.com/fishfinal/workerart"
+	"github.com/coolstina/workerart"
 )
 
 func main() {

@@ -1,4 +1,4 @@
-module github.com/fishfinal/workerart
+module github.com/coolstina/workerart
 
 go 1.16
 
