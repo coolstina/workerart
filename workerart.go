@@ -41,13 +41,13 @@ type WorkerPool struct {
 	errors chan error
 }
 
-// AddJobs Add the jobs to worker pool.
-func (pool *WorkerPool) AddJobs(jobs ...interface{}) {
+// AddJobStarting Add the jobs to worker pool.
+func (pool *WorkerPool) AddJobStarting(jobs ...interface{}) {
 	pool.jobs.AddJob(jobs...)
 }
 
-// AddJobs Add the jobs to worker pool.
-func (pool *WorkerPool) CloseJob() {
+// AddJobStarting Add the jobs to worker pool.
+func (pool *WorkerPool) AddJobFinished() {
 	pool.jobs.Close()
 }
 
@@ -79,10 +79,14 @@ func (pool *WorkerPool) Done() {
 	pool.done <- struct{}{}
 }
 
-
 // Finished Whether the worker pool has completed all work.
 func (pool *WorkerPool) Finished() <-chan struct{} {
 	return pool.done
+}
+
+// Errors Returns an error generated during processing.
+func (pool *WorkerPool) Errors() <-chan error {
+	return pool.errors
 }
 
 // NewWorkerPool initialize worker pool instance.
