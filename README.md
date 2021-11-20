@@ -23,7 +23,7 @@ While you can implement workpools yourself in order to gracefully handle multipl
 ## How to use?
 
 
-### [Quick try](./example/simple/main.go)
+### Quick try
 
 ```go
 package main
@@ -104,9 +104,9 @@ func NewWorkerPool(ops ...Option) *WorkerPool {
 }
 ```
 
-To make a task meaningful, you must implement a TaskCallback function that implements the logical processing that the task is specifically intended to perform. Take a look at the following example [Definition TaskCallback function](#[Definition TaskCallback function](./example/taskcallback/main.go)).
+To make a task meaningful, you must implement a TaskCallback function that implements the logical processing that the task is specifically intended to perform. Take a look at the following example [Definition TaskCallback function](#Definition TaskCallback function).
 
-### [Definition TaskCallback function](./example/taskcallback/main.go)
+### Definition TaskCallback function
 
 ```go
 package main
@@ -181,3 +181,5 @@ func process() workerart.TaskCallback {
 	}
 }
 ```
+
+**_The above [example](./example) can be viewed in the example directory ~_**
