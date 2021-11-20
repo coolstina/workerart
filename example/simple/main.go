@@ -15,10 +15,10 @@ func main() {
 	// Step2: Add a job task to the work pool.
 	go func() {
 		no := 10000
-		for i := 0; i < no; i++ {
-			pool.AddJobs(rand.Intn(no))
+		for i := 1; i <= no; i++ {
+			pool.AddJobStarting(rand.Intn(no))
 		}
-		pool.CloseJob()
+		pool.AddJobFinished()
 	}()
 
 	// Step3: Workers processing work.
