@@ -104,7 +104,7 @@ func NewWorkerPool(ops ...Option) *WorkerPool {
 }
 ```
 
-To make a task meaningful, you must implement a TaskCallback function that implements the logical processing that the task is specifically intended to perform. Take a look at the following example [Definition TaskCallback function](#[Definition TaskCallback function](./example/taskcallback/main.go)).
+To make a task meaningful, you must implement a TaskCallback function that implements the logical processing that the task is specifically intended to perform. Take a look at the following example [Definition TaskCallback function](#Definition TaskCallback function)).
 
 ### Definition TaskCallback function
 
