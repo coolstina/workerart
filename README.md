@@ -5,7 +5,7 @@ Fast use worker pool process task.
 ## Install
 
 ```shell script
-go get github.com/fishfinal/workerart
+go get github.com/coolstina/workerart
 ```
 
 ## What is workerart?
@@ -31,7 +31,7 @@ import (
 	"math/rand"
 	"time"
 
-	"github.com/fishfinal/workerart"
+	"github.com/coolstina/workerart"
 )
 
 func main() {
