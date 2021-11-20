@@ -37,7 +37,6 @@ func (suite *WorkerPoolSuite) BeforeTest(suiteName, testName string) {
 }
 
 func (suite *WorkerPoolSuite) Test_NewWorkerPool() {
-
 	pool := NewWorkerPool(
 		WithWorkerNumber(suite.workersNumber),
 		WithResult(make(chan interface{}, suite.workersNumber)),
@@ -48,9 +47,9 @@ func (suite *WorkerPoolSuite) Test_NewWorkerPool() {
 	go func() {
 		no := 100
 		for i := 0; i < no; i++ {
-			pool.AddJobs(rand.Intn(no))
+			pool.AddJobStarting(rand.Intn(no))
 		}
-		pool.jobs.Close()
+		pool.AddJobFinished()
 	}()
 
 	go pool.WorkersProcessing()
