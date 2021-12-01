@@ -45,7 +45,7 @@ func WithJobber(jobber Jobber) Option {
 	})
 }
 
-// WithWorkersNumber Use task callback value function override original value function.
+// WithTaskCallback Use task callback value function override original value function.
 func WithTaskCallback(taskCallback TaskCallback) Option {
 	return optionFunc(func(pool *WorkerPool) {
 		pool.taskCallback = taskCallback

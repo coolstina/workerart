@@ -46,14 +46,18 @@ func (pool *WorkerPool) AddJobStarting(jobs ...interface{}) {
 	pool.jobs.AddJob(jobs...)
 }
 
-// AddJobStarting Add the jobs to worker pool.
+// SetTaskCallback Setting the task process callback to worker pool.
+func (pool *WorkerPool) SetTaskCallback(callback TaskCallback) {
+	pool.taskCallback = callback
+}
+
+// AddJobFinished Add the jobs to worker pool.
 func (pool *WorkerPool) AddJobFinished() {
 	pool.jobs.Close()
 }
 
 // WorkersProcessing Workers processing the task work.
 func (pool *WorkerPool) WorkersProcessing() {
-
 	// Create multiple workers to complete the work.
 	for i := uint(0); i < pool.workersNumber; i++ {
 		pool.wait.Add(1)
