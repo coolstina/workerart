@@ -25,20 +25,20 @@ func (o optionFunc) apply(ops *WorkerPool) {
 }
 
 // WithWorkerNumber Use specific workers workersNumber override default value.
-func WithWorkerNumber(workersNumber uint) Option {
+func WithWorkerNumber(workersNumber int) Option {
 	return optionFunc(func(ops *WorkerPool) {
 		ops.workersNumber = workersNumber
 	})
 }
 
-// WithWorkerNumber Use specific result channel override default value.
+// WithResult Use specific result channel override default value.
 func WithResult(result chan interface{}) Option {
 	return optionFunc(func(ops *WorkerPool) {
 		ops.result = result
 	})
 }
 
-// WithWorkerNumber Use specific result channel override default value.
+// WithJobber Use specific Jobber custom implement override default value.
 func WithJobber(jobber Jobber) Option {
 	return optionFunc(func(ops *WorkerPool) {
 		ops.jobs = jobber

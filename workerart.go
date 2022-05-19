@@ -27,7 +27,7 @@ type WorkerPool struct {
 	wait *sync.WaitGroup
 
 	// Workers workersNumber.
-	workersNumber uint
+	workersNumber int
 
 	// Default no processing,
 	// this is，you must implement your own handlers.
@@ -59,7 +59,7 @@ func (pool *WorkerPool) AddJobFinished() {
 // WorkersProcessing Workers processing the task work.
 func (pool *WorkerPool) WorkersProcessing() {
 	// Create multiple workers to complete the work.
-	for i := uint(0); i < pool.workersNumber; i++ {
+	for i := 0; i < pool.workersNumber; i++ {
 		pool.wait.Add(1)
 
 		// Worker task processing.
